@@ -44,24 +44,25 @@ const columns = [
     header: 'Avg Watch Time',
     cell: (info) => `${info.getValue().toFixed(2)}s`,
   }),
+  columnHelper.accessor('totalVideoTime', {
+    header: 'Total Video Time',
+    cell: (info) => `${info.getValue()}s`,
+  }),
   columnHelper.accessor('fullWatchPercentage', {
     header: 'Full Watch %',
     cell: (info) => {
-      const value = info.getValue() as string | number; // Explicitamente define o tipo como string ou número
+      const value = info.getValue();
       let numericValue = 0;
   
-      // Verifica o tipo do valor e realiza a conversão
       if (typeof value === 'string') {
         numericValue = parseFloat(value.replace('%', ''));
       } else if (typeof value === 'number') {
         numericValue = value;
       }
   
-      // Retorna o valor formatado ou 0% caso seja inválido
       return !isNaN(numericValue) ? `${numericValue.toFixed(2)}%` : '0%';
     },
   }),
-  
   columnHelper.accessor('newFollowers', {
     header: 'New Followers',
     cell: (info) => info.getValue().toLocaleString(),

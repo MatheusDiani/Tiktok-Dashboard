@@ -34,7 +34,7 @@ export const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
 
   return (
     <div className="w-full h-[400px] bg-white rounded-lg shadow-lg p-4">
-      <h2 className="text-xl font-bold mb-4">View Duration vs Total Views</h2>
+      <h2 className="text-xl font-bold mb-4">Video Duration vs Total Views</h2>
       <ResponsiveContainer width="100%" height="100%">
         <ScatterChart>
           <CartesianGrid strokeDasharray="3 3" />
