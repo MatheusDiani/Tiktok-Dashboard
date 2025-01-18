@@ -7,7 +7,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  ScatterProps,
 } from 'recharts';
 import type { ContentData } from '../types';
 

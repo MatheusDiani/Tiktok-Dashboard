@@ -126,6 +126,8 @@ function App() {
       .catch((error) => console.error('Erro ao carregar Content.csv:', error));
   }, []);
 
+  console.log('Filtered Content Data for ScatterPlot:', filteredContentData);
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-7xl mx-auto">
@@ -158,7 +160,7 @@ function App() {
 
           <div className="bg-white rounded-lg shadow-lg p-4">
             <h2 className="text-xl font-bold mb-4">Content Performance</h2>
-            <ContentTable data={filteredContentData} /> {/* Dados filtrados */}
+            <ContentTable data={contentData} /> {/* Teste sem filtragem */}
           </div>
         </div>
       </div>
