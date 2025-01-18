@@ -5,6 +5,7 @@ import { ContentTable } from './components/ContentTable';
 import { ScatterPlot } from './components/ScatterPlot';
 import { Filters } from './components/Filters';
 import { LayoutGrid } from 'lucide-react';
+import { EngagementWatchTimeScatter } from './components/EngagementWatchTimeScatter';
 
 // Tipos para os dados
 type OverviewData = {
@@ -56,8 +57,8 @@ function App() {
   });
 
   const [dateRange, setDateRange] = useState({
-    start: '2024-09-01',
-    end: '2024-09-30',
+    start: '2024-09-09',
+    end: '2025-02-29',
   });
 
   const [viewsRange, setViewsRange] = useState({
@@ -202,12 +203,13 @@ function App() {
           />
 
           <div className="grid md:grid-cols-2 gap-6">
-            <ScatterPlot data={filteredContentData} /> {/* Dados filtrados */}
+            <ScatterPlot data={filteredContentData} />
+            <EngagementWatchTimeScatter data={filteredContentData} />
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-4">
             <h2 className="text-xl font-bold mb-4">Content Performance</h2>
-            <ContentTable data={filteredContentData} /> {/* Use os dados filtrados */}
+            <ContentTable data={filteredContentData} />
           </div>
         </div>
       </div>
