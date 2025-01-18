@@ -30,6 +30,18 @@ type ContentData = {
   newFollowers: number;
 };
 
+// Adicionar função auxiliar para converter data
+function convertDate(dateStr: string): Date {
+  try {
+    const [day, month, year] = dateStr.split('/').map(num => parseInt(num, 10));
+    // Garantir que o ano seja 2024 para as datas do CSV
+    const fullYear = year < 100 ? 2000 + year : year;
+    return new Date(fullYear, month - 1, day);
+  } catch (error) {
+    console.error('Erro ao converter data:', dateStr, error);
+    return new Date(); // Data padrão em caso de erro
+  }
+}
 
 function App() {
   const [overviewData, setOverviewData] = useState<OverviewData[]>([]);
@@ -44,13 +56,13 @@ function App() {
   });
 
   const [dateRange, setDateRange] = useState({
-    start: '2024-02-01',
-    end: '2024-02-28',
+    start: '2024-09-01',
+    end: '2024-09-30',
   });
 
   const [viewsRange, setViewsRange] = useState({
     min: 0,
-    max: 200000,
+    max: 1500000,
   });
 
   const toggleMetric = (metric: string) => {
@@ -75,16 +87,38 @@ function App() {
   });
 
   const filteredContentData = contentData.filter((item) => {
-    const itemDate = new Date(item.postDay);
-    const startDate = new Date(dateRange.start);
-    const endDate = new Date(dateRange.end);
+    try {
+      if (!item.postDay) {
+        console.warn('Item sem data:', item);
+        return false;
+      }
 
-    return (
-      itemDate >= startDate &&
-      itemDate <= endDate &&
-      item.totalViews >= viewsRange.min &&
-      item.totalViews <= viewsRange.max
-    );
+      const itemDate = convertDate(item.postDay);
+      const startDate = new Date(dateRange.start);
+      const endDate = new Date(dateRange.end);
+
+      // Adicionar logs para debug
+      console.log('Filtragem:', {
+        item: item.videoTitle,
+        date: itemDate.toISOString(),
+        views: item.totalViews,
+        incluído: 
+          itemDate >= startDate && 
+          itemDate <= endDate && 
+          item.totalViews >= viewsRange.min && 
+          item.totalViews <= viewsRange.max
+      });
+
+      return (
+        itemDate >= startDate && 
+        itemDate <= endDate && 
+        item.totalViews >= viewsRange.min && 
+        item.totalViews <= viewsRange.max
+      );
+    } catch (error) {
+      console.error('Erro ao filtrar item:', item, error);
+      return false;
+    }
   });
 
   useEffect(() => {
@@ -104,27 +138,40 @@ function App() {
       .catch((error) => console.error('Erro ao carregar Overview.csv:', error));
 
     // Carregar e mapear Content.csv
-    d3.csv('/src/components/data/Content.csv', (row) => ({
-      postDay: row['Post day'] || '',
-      videoTitle: row['Video title'] || '',
-      totalVideoTime: Number(row['Total video time'] || 0),
-      totalViews: Number(row['Total views'] || 0),
-      totalLikes: Number(row['Total likes'] || 0),
-      totalComments: Number(row['Total comments'] || 0),
-      totalShares: Number(row['Total shares'] || 0),
-      totalSaves: Number(row['Total saves'] || 0),
-      avgWatchTime: Number(row['Avg watch time'] || 0),
-      fullWatchPercentage: parseFloat(
-        (row['Full watch percentage'] || '0').replace('%', '')
-      ),
-      newFollowers: Number(row['New followers'] || 0),
-    }))
-      .then((data) => {
-        setContentData(data as ContentData[]);
-        console.log('Content Data:', data);
+    d3.csv('/src/components/data/Content.csv')
+      .then((rawData) => {
+        console.log('Dados brutos do CSV:', rawData.length);
+        
+        const processedData = rawData.map(row => ({
+          postDay: row['Post day'] || '',
+          videoTitle: row['Video title'] || '',
+          totalVideoTime: parseFloat(row['Total video time'] || '0'),
+          totalViews: parseInt(row['Total views']?.replace(/,/g, '') || '0', 10),
+          totalLikes: parseInt(row['Total likes']?.replace(/,/g, '') || '0', 10),
+          totalComments: parseInt(row['Total comments']?.replace(/,/g, '') || '0', 10),
+          totalShares: parseInt(row['Total shares']?.replace(/,/g, '') || '0', 10),
+          totalSaves: parseInt(row['Total saves']?.replace(/,/g, '') || '0', 10),
+          avgWatchTime: parseFloat(row['Avg watch time'] || '0'),
+          fullWatchPercentage: parseFloat((row['Full watch percentage'] || '0').replace('%', '')),
+          newFollowers: parseInt(row['New followers']?.replace(/,/g, '') || '0', 10),
+        }));
+
+        console.log('Dados processados:', processedData.length);
+        setContentData(processedData);
       })
       .catch((error) => console.error('Erro ao carregar Content.csv:', error));
   }, []);
+
+  useEffect(() => {
+    console.log({
+      'Total de registros no CSV': contentData.length,
+      'Registros após filtro': filteredContentData.length,
+      'Primeiro registro': contentData[0],
+      'Último registro': contentData[contentData.length - 1],
+      'Range de datas atual': dateRange,
+      'Range de views atual': viewsRange,
+    });
+  }, [contentData, filteredContentData, dateRange, viewsRange]);
 
   console.log('Filtered Content Data for ScatterPlot:', filteredContentData);
 
@@ -160,7 +207,7 @@ function App() {
 
           <div className="bg-white rounded-lg shadow-lg p-4">
             <h2 className="text-xl font-bold mb-4">Content Performance</h2>
-            <ContentTable data={contentData} /> {/* Teste sem filtragem */}
+            <ContentTable data={filteredContentData} /> {/* Use os dados filtrados */}
           </div>
         </div>
       </div>
