@@ -1,6 +1,6 @@
 # Tiktok Dashboard
 
-<img src="Images/dashboard.png" alt="Dashboard do TikTok Analytics" width="60">
+<img src="Images/dashboard.png" alt="Dashboard do TikTok Analytics" width="200">
 
     Sumário:
         1 - Definição do problema.
