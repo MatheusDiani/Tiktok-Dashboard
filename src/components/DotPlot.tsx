@@ -1,29 +1,18 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
-  ComposedChart,
+  ScatterChart,
   XAxis,
   YAxis,
   Tooltip,
   CartesianGrid,
-  Rectangle,
   ResponsiveContainer,
   Scatter,
   Label,
 } from 'recharts';
 import type { ContentData } from '../types';
 
-interface BoxPlotChartProps {
+interface DotPlotProps {
   data: ContentData[];
-}
-
-interface BoxPlotData {
-  category: string;
-  min: number;
-  q1: number;
-  median: number;
-  q3: number;
-  max: number;
-  outliers: Array<{ engagement: number; videoTitle: string }>;
 }
 
 interface TagCombination {
@@ -48,124 +37,15 @@ const AVAILABLE_TAGS = [
   'sem tag'
 ] as const;
 
-const CustomBox = (props: any) => {
-  const { x, y, width, height, fill, stroke } = props;
-  return <Rectangle {...props} />;
-};
-
-const BoxPlot = (props: any) => {
-  const {
-    x,
-    width,
-    q1,
-    q3,
-    median,
-    min,
-    max,
-    fill,
-    stroke,
-  } = props;
-
-  const centerX = x;
-  const boxWidth = width * 0.8;
-  const whiskerWidth = boxWidth * 0.6;
-
-  return (
-    <g>
-      {/* Box */}
-      <rect
-        x={centerX - boxWidth / 2}
-        y={q3}
-        width={boxWidth}
-        height={q1 - q3}
-        fill={fill}
-        stroke={stroke}
-        fillOpacity={0.3}
-      />
-
-      {/* Median line */}
-      <line
-        x1={centerX - boxWidth / 2}
-        x2={centerX + boxWidth / 2}
-        y1={median}
-        y2={median}
-        stroke="#000"
-        strokeWidth={2}
-      />
-
-      {/* Whiskers */}
-      <line
-        x1={centerX}
-        x2={centerX}
-        y1={min}
-        y2={q1}
-        stroke="#000"
-        strokeWidth={1}
-      />
-      <line
-        x1={centerX}
-        x2={centerX}
-        y1={q3}
-        y2={max}
-        stroke="#000"
-        strokeWidth={1}
-      />
-
-      {/* Whisker caps */}
-      <line
-        x1={centerX - whiskerWidth / 2}
-        x2={centerX + whiskerWidth / 2}
-        y1={min}
-        y2={min}
-        stroke="#000"
-        strokeWidth={1}
-      />
-      <line
-        x1={centerX - whiskerWidth / 2}
-        x2={centerX + whiskerWidth / 2}
-        y1={max}
-        y2={max}
-        stroke="#000"
-        strokeWidth={1}
-      />
-    </g>
-  );
-};
-
-export const BoxPlotChart: React.FC<BoxPlotChartProps> = ({ data }) => {
+export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
   const [tagCombinations, setTagCombinations] = useState<TagCombination[]>([
     { id: 1, tags: ['heroi', 'marvel'], label: 'heroi + marvel' }
   ]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [editingId, setEditingId] = useState<number | null>(null);
-
-  // Adicionar useEffect para debug
-  useEffect(() => {
-    console.log('BoxPlotChart - Dados recebidos:', {
-      totalItems: data.length,
-      firstItem: data[0],
-      tags: data.map(item => ({ tags1: item.tags1, tags2: item.tags2 }))
-    });
-  }, [data]);
 
   // Função para calcular o engajamento
   const calculateEngagement = (item: ContentData) => {
     return ((item.totalLikes + item.totalComments + item.totalShares + item.totalSaves) / item.totalViews) * 100;
-  };
-
-  // Função para calcular estatísticas do boxplot
-  const calculateBoxPlotStats = (values: number[]) => {
-    if (values.length === 0) return { min: 0, q1: 0, median: 0, q3: 0, max: 0 };
-    
-    const sorted = [...values].sort((a, b) => a - b);
-    const q1 = sorted[Math.floor(sorted.length * 0.25)] || 0;
-    const median = sorted[Math.floor(sorted.length * 0.5)] || 0;
-    const q3 = sorted[Math.floor(sorted.length * 0.75)] || 0;
-    const iqr = q3 - q1;
-    const min = Math.max(q1 - 1.5 * iqr, sorted[0]);
-    const max = Math.min(q3 + 1.5 * iqr, sorted[sorted.length - 1]);
-    
-    return { min, q1, median, q3, max };
   };
 
   // Processar dados para o scatter plot
@@ -208,13 +88,6 @@ export const BoxPlotChart: React.FC<BoxPlotChartProps> = ({ data }) => {
       ...prev,
       { id: newId, tags: [...selectedTags], label }
     ]);
-    
-    // Log da nova combinação
-    console.log('Nova combinação adicionada:', {
-      id: newId,
-      tags: selectedTags,
-      label
-    });
     
     setSelectedTags([]);
   };
@@ -305,8 +178,8 @@ export const BoxPlotChart: React.FC<BoxPlotChartProps> = ({ data }) => {
       
       <div className="h-[500px]">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart
-            margin={{ top: 20, right: 50, left: 50, bottom: 100 }}
+          <ScatterChart
+            margin={{ top: 20, right: 50, left: 50, bottom: 120 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis 
@@ -315,31 +188,56 @@ export const BoxPlotChart: React.FC<BoxPlotChartProps> = ({ data }) => {
               domain={[-0.5, tagCombinations.length - 0.5]}
               tickFormatter={(value) => {
                 const combo = tagCombinations[value];
-                return combo ? combo.label : '';
+                if (combo) {
+                  const maxLength = 15;
+                  const text = combo.label;
+                  if (text.length > maxLength) {
+                    return text.split(' + ').join('\n+\n');
+                  }
+                  return text;
+                }
+                return '';
               }}
               interval={0}
               angle={-45}
               textAnchor="end"
-              height={100}
-              tickMargin={40}
-              tick={{ fontSize: 12 }}
+              height={120}
+              tickMargin={45}
+              tick={{ 
+                fontSize: 14,
+                width: 120,
+                fill: '#333',
+                fontWeight: 500
+              }}
             >
               <Label 
                 value="Tag Combinations" 
-                offset={-60} 
-                position="insideBottom" 
+                offset={-80}
+                position="insideBottom"
+                style={{ 
+                  fontSize: 14,
+                  fontWeight: 500
+                }}
               />
             </XAxis>
             <YAxis 
               dataKey="engagement"
               name="Engagement"
               unit="%"
+              tick={{ 
+                fontSize: 12,
+                fontWeight: 500
+              }}
             >
               <Label 
                 value="Engagement (%)" 
                 angle={-90} 
                 position="insideLeft" 
-                offset={10} 
+                offset={10}
+                style={{ 
+                  fontSize: 14,
+                  fontWeight: 500
+                }}
               />
             </YAxis>
             <Tooltip content={<CustomTooltip />} />
@@ -352,7 +250,7 @@ export const BoxPlotChart: React.FC<BoxPlotChartProps> = ({ data }) => {
               r={6}
               opacity={0.6}
             />
-          </ComposedChart>
+          </ScatterChart>
         </ResponsiveContainer>
       </div>
     </div>

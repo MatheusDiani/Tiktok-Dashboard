@@ -6,7 +6,7 @@ import { ScatterPlot } from './components/ScatterPlot';
 import { Filters } from './components/Filters';
 import { LayoutGrid } from 'lucide-react';
 import { EngagementWatchTimeScatter } from './components/EngagementWatchTimeScatter';
-import { BoxPlotChart } from './components/BoxPlotChart';
+import { DotPlot } from './components/DotPlot';
 
 // Tipos para os dados
 type OverviewData = {
@@ -226,10 +226,7 @@ function App() {
           </div>
 
           <div className="mt-6">
-            <BoxPlotChart 
-              data={filteredContentData} 
-              key={`boxplot-${filteredContentData.length}`} // Força re-render quando os dados mudam
-            />
+            <DotPlot data={filteredContentData} />
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-4 mt-6">
