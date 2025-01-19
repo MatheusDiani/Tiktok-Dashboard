@@ -1,6 +1,6 @@
 # Tiktok Dashboard
 
-![Dashboard do TikTok Analytics](Images/dashboard.png)
+<img src="Images/dashboard.png" alt="Dashboard do TikTok Analytics" width="600">
 
     Sumário:
         1 - Definição do problema.
