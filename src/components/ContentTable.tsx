@@ -53,13 +53,13 @@ const columns = [
     cell: (info) => {
       const value = info.getValue();
       let numericValue = 0;
-  
       if (typeof value === 'string') {
         numericValue = parseFloat(value.replace('%', ''));
       } else if (typeof value === 'number') {
         numericValue = value;
+      } else {
+        numericValue = 0;
       }
-  
       return !isNaN(numericValue) ? `${numericValue.toFixed(2)}%` : '0%';
     },
   }),
