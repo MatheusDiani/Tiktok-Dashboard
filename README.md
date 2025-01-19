@@ -1,6 +1,6 @@
 # Tiktok Dashboard
 
-![Dashboard do TikTok Analytics](images/dashboard.png)
+![Dashboard do TikTok Analytics](Images/dashboard.png)
 
     Sumário:
         1 - Definição do problema.
