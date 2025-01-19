@@ -6,6 +6,7 @@ import { ScatterPlot } from './components/ScatterPlot';
 import { Filters } from './components/Filters';
 import { LayoutGrid } from 'lucide-react';
 import { EngagementWatchTimeScatter } from './components/EngagementWatchTimeScatter';
+import { BoxPlotChart } from './components/BoxPlotChart';
 
 // Tipos para os dados
 type OverviewData = {
@@ -29,6 +30,8 @@ type ContentData = {
   avgWatchTime: number;
   fullWatchPercentage: number;
   newFollowers: number;
+  tags1: string;
+  tags2: string;
 };
 
 // Adicionar função auxiliar para converter data
@@ -141,7 +144,7 @@ function App() {
     // Carregar e mapear Content.csv
     d3.csv('/src/components/data/Content.csv')
       .then((rawData) => {
-        console.log('Dados brutos do CSV:', rawData.length);
+        console.log('Content.csv - Dados brutos:', rawData);
         
         const processedData = rawData.map(row => ({
           postDay: row['Post day'] || '',
@@ -155,9 +158,16 @@ function App() {
           avgWatchTime: parseFloat(row['Avg watch time'] || '0'),
           fullWatchPercentage: parseFloat((row['Full watch percentage'] || '0').replace('%', '')),
           newFollowers: parseInt(row['New followers']?.replace(/,/g, '') || '0', 10),
+          tags1: row['Tags1']?.toLowerCase().trim() || '',
+          tags2: row['Tags2']?.toLowerCase().trim() || '',
         }));
 
-        console.log('Dados processados:', processedData.length);
+        console.log('Content.csv - Dados processados:', {
+          total: processedData.length,
+          amostra: processedData.slice(0, 3),
+          tags: processedData.map(item => ({ tags1: item.tags1, tags2: item.tags2 }))
+        });
+
         setContentData(processedData);
       })
       .catch((error) => console.error('Erro ao carregar Content.csv:', error));
@@ -173,6 +183,14 @@ function App() {
       'Range de views atual': viewsRange,
     });
   }, [contentData, filteredContentData, dateRange, viewsRange]);
+
+  // Adicionar log para dados filtrados
+  useEffect(() => {
+    console.log('Dados filtrados:', {
+      total: filteredContentData.length,
+      amostra: filteredContentData.slice(0, 3)
+    });
+  }, [filteredContentData]);
 
   console.log('Filtered Content Data for ScatterPlot:', filteredContentData);
 
@@ -207,7 +225,14 @@ function App() {
             <EngagementWatchTimeScatter data={filteredContentData} />
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-4">
+          <div className="mt-6">
+            <BoxPlotChart 
+              data={filteredContentData} 
+              key={`boxplot-${filteredContentData.length}`} // Força re-render quando os dados mudam
+            />
+          </div>
+
+          <div className="bg-white rounded-lg shadow-lg p-4 mt-6">
             <h2 className="text-xl font-bold mb-4">Content Performance</h2>
             <ContentTable data={filteredContentData} />
           </div>

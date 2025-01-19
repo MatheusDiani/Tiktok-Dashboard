@@ -1,13 +1,13 @@
-export interface OverviewData {
+export type OverviewData = {
   date: string;
   videoViews: number;
   profileViews: number;
   likes: number;
   comments: number;
   shares: number;
-}
+};
 
-export interface ContentData {
+export type ContentData = {
   postDay: string;
   videoTitle: string;
   totalVideoTime: number;
@@ -19,4 +19,6 @@ export interface ContentData {
   avgWatchTime: number;
   fullWatchPercentage: number;
   newFollowers: number;
-}
+  tags1: string;
+  tags2: string;
+};
