@@ -6,8 +6,21 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import type { ContentData } from '../types';
 import { ArrowUpDown } from 'lucide-react';
+
+// Ajuste a tipagem de ContentData para que 'fullWatchPercentage' seja string ou number
+export interface ContentData {
+  videoTitle: string;
+  totalViews: number;
+  totalLikes: number;
+  totalComments: number;
+  totalShares: number;
+  totalSaves: number;
+  avgWatchTime: number;
+  totalVideoTime: number;
+  fullWatchPercentage: string | number; // <--- Importante
+  newFollowers: number;
+}
 
 interface ContentTableProps {
   data: ContentData[];
@@ -51,15 +64,16 @@ const columns = [
   columnHelper.accessor('fullWatchPercentage', {
     header: 'Full Watch %',
     cell: (info) => {
-      const value = info.getValue();
+      // Garanta que o valor seja considerado string | number
+      const value = info.getValue() as string | number;
       let numericValue = 0;
+
       if (typeof value === 'string') {
         numericValue = parseFloat(value.replace('%', ''));
       } else if (typeof value === 'number') {
         numericValue = value;
-      } else {
-        numericValue = 0;
       }
+
       return !isNaN(numericValue) ? `${numericValue.toFixed(2)}%` : '0%';
     },
   }),
@@ -71,6 +85,7 @@ const columns = [
 
 export const ContentTable: React.FC<ContentTableProps> = ({ data }) => {
   console.log('Dados recebidos:', data);
+
   const table = useReactTable({
     data,
     columns,
@@ -119,4 +134,4 @@ export const ContentTable: React.FC<ContentTableProps> = ({ data }) => {
       </table>
     </div>
   );
-}
+};
