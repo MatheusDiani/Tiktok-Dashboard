@@ -1,14 +1,11 @@
 # Tiktok Dashboard
 
-# Sumário
+    Sumário:
+        1 - Definição do problema.
+        2 - Definição do objetivo.
+        3 - Coleta de dados.
+        4 - Feature Engineering.
+        5 - Ferramentas.
+        6 - Gráficos.
+        7 - Melhorias. O que faria diferente?
 
-1. **Web Scraping**
-2. **Análise Exploratória**
-3. **Data Cleaning**
-4. **Análise dos Dados**
-5. **Construção do Modelo**
-6. **Resultados**
-7. **Melhorias. O que faria diferente?**
-8. **Sumário dos Notebooks**
-   - Resources
-   - Observações
