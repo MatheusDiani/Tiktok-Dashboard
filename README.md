@@ -1,5 +1,7 @@
 # Tiktok Dashboard
 
+![Dashboard do TikTok Analytics](images/dashboard.png)
+
     Sumário:
         1 - Definição do problema.
         2 - Definição do objetivo.
