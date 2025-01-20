@@ -11,7 +11,7 @@
         4 - Feature Engineering.
         5 - Ferramentas.
         6 - Dashboard.
-        7 - Resultados.
+        7 - Conclusão.
         8 - Melhorias.
 
 ###  1 - Definição do problema.
@@ -90,17 +90,17 @@ Tabela:
 
 Tabela com várias informações sobre os vídeos.
 
-###  7 - Resultados.
+###  7 - Conclusão.
 
-
+Com o dashboard, posso ter uma visão geral do desempenho do meu perfil, podendo aproveitar momentos de picos de visualizações do meu perfil e aproveitar essas oportunidades para produzir mais vídeos que geram maior engajamento.
 
 ###  8 - Melhorias.
 
 - Implementar uma API para coletar os dados dos vídeos.
 - Adicionar novas variáveis para o dashboard.
-- Adicionar mais filtros para o dashboard.
+- Adicionar mais filtros.
 - Criar abas para melhor organização.
-- Adicionar mais gráficos para o dashboard.
+- Adicionar mais gráficos.
 
 
 
