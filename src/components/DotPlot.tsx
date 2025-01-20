@@ -141,6 +141,56 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
     );
   };
 
+  // Calcular médias de engajamento por categoria
+  const categoryAverages = useMemo(() => {
+    return tagCombinations.map(combination => {
+      const categoryData = data.filter(item => {
+        const itemTags = new Set([
+          item.tags1?.toLowerCase().trim(),
+          item.tags2?.toLowerCase().trim()
+        ].filter(Boolean));
+        
+        return combination.tags.every(tag => 
+          itemTags.has(tag.toLowerCase().trim())
+        );
+      });
+
+      const engagements = categoryData.map(calculateEngagement);
+      const average = engagements.length > 0
+        ? engagements.reduce((sum, eng) => sum + eng, 0) / engagements.length
+        : 0;
+
+      return {
+        category: combination.label,
+        average,
+        count: categoryData.length
+      };
+    });
+  }, [data, tagCombinations]);
+
+  // Componente para mostrar as médias
+  const AveragesDisplay = () => (
+    <div className="mb-4">
+      <h3 className="text-lg font-semibold mb-2">Average Engagement by Category:</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {categoryAverages.map((cat, index) => (
+          <div 
+            key={index}
+            className="bg-gray-50 p-3 rounded-lg border border-gray-200"
+          >
+            <p className="font-medium text-gray-800">{cat.category}</p>
+            <p className="text-sm text-gray-600">
+              Average: {cat.average.toFixed(2)}%
+              <span className="ml-2 text-gray-500">
+                (from {cat.count} videos)
+              </span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="w-full bg-white rounded-lg shadow-lg p-4">
       <div className="mb-4">
@@ -195,6 +245,9 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
             </div>
           ))}
         </div>
+
+        {/* Adicionar o display de médias aqui */}
+        <AveragesDisplay />
       </div>
 
       <div className="h-[500px]">
