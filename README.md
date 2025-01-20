@@ -92,7 +92,7 @@ Tabela com várias informações sobre os vídeos.
 
 ###  7 - Conclusão.
 
-Com o dashboard, posso ter uma visão geral do desempenho do meu perfil, podendo aproveitar momentos de picos de visualizações do meu perfil e aproveitar essas oportunidades para produzir mais vídeos que geram maior engajamento.
+Com o dashboard, posso ter uma visão geral do desempenho das minhas postagens, podendo aproveitar momentos de picos de visualizações no meu perfil e aproveitar essas oportunidades para produzir os modelos de vídeos que geram maior engajamento.
 
 ###  8 - Melhorias.
 
