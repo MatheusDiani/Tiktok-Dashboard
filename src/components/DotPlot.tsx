@@ -1,4 +1,4 @@
-import React, { useState, useMemo, forwardRef, useImperativeHandle, useRef } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   ScatterChart,
   XAxis,
@@ -36,11 +36,6 @@ interface DotPlotProps {
   }>) => void;
 }
 
-interface TagCombination {
-  id: number;
-  tags: string[];
-  label: string;
-}
 
 const AVAILABLE_TAGS = [
   'fantasia',
