@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3'; // Biblioteca para carregar CSVs
 import { TrendChart } from './components/TrendChart';
 import { ContentTable } from './components/ContentTable';
@@ -7,6 +7,7 @@ import { Filters } from './components/Filters';
 import { LayoutGrid } from 'lucide-react';
 import { EngagementWatchTimeScatter } from './components/EngagementWatchTimeScatter';
 import { DotPlot } from './components/DotPlot';
+import { CombinedMetricsChart } from './components/CombinedMetricsChart';
 
 // Tipos para os dados
 type OverviewData = {
@@ -68,6 +69,9 @@ function App() {
     min: 0,
     max: 1500000,
   });
+
+  // Adicionar ref para o DotPlot
+  const dotPlotRef = useRef<{ getTagCombinations: () => Array<{ id: number; tags: string[]; label: string; }> }>(null);
 
   const toggleMetric = (metric: string) => {
     setVisibleMetrics((prev) => ({
@@ -226,7 +230,17 @@ function App() {
           </div>
 
           <div className="mt-6">
-            <DotPlot data={filteredContentData} />
+            <DotPlot 
+              ref={dotPlotRef}
+              data={filteredContentData} 
+            />
+          </div>
+
+          <div className="mt-6">
+            <CombinedMetricsChart 
+              data={filteredContentData}
+              tagCombinations={dotPlotRef.current?.getTagCombinations() || []}
+            />
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-4 mt-6">

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, forwardRef, useImperativeHandle, useRef } from 'react';
 import {
   ScatterChart,
   XAxis,
@@ -49,7 +49,7 @@ const AVAILABLE_TAGS = [
   'filme',
 ] as const;
 
-export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
+export const DotPlot = forwardRef<{ getTagCombinations: () => TagCombination[] }, DotPlotProps>(({ data }, ref) => {
   const [tagCombinations, setTagCombinations] = useState<TagCombination[]>([
     { id: 1, tags: ['heroi', 'marvel'], label: 'heroi + marvel' },
   ]);
@@ -191,6 +191,14 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
     </div>
   );
 
+  // Expor as combinações de tags para outros componentes
+  const getTagCombinations = () => tagCombinations;
+
+  // Tornar a referência disponível externamente
+  useImperativeHandle(ref, () => ({
+    getTagCombinations
+  }));
+
   return (
     <div className="w-full bg-white rounded-lg shadow-lg p-4">
       <div className="mb-4">
@@ -252,17 +260,13 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
 
       <div className="h-[500px]">
         <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart margin={{ top: 20, right: 50, left: 50, bottom: 120 }}>
+          <ScatterChart margin={{ top: 20, right: 50, left: 50, bottom: 80 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               type="number"
               dataKey="categoryIndex"
-              // Garante que o eixo vai de -0.5 até (n - 0.5),
-              // permitindo que cada índice fique centralizado
               domain={[-0.5, tagCombinations.length - 0.5]}
-              // Força o eixo a exibir todos os índices inteiros
               ticks={tagCombinations.map((_, i) => i)}
-              // Mostra a label correta para cada índice
               tickFormatter={(value) => {
                 const combo = tagCombinations[value];
                 return combo ? combo.label : '';
@@ -270,8 +274,8 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
               interval={0}
               angle={-45}
               textAnchor="end"
-              height={120}
-              tickMargin={45}
+              height={80}
+              tickMargin={30}
               tick={{
                 fontSize: 14,
                 width: 120,
@@ -281,7 +285,7 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
             >
               <Label
                 value="Tag Combinations"
-                offset={-80}
+                offset={-50}
                 position="insideBottom"
                 style={{
                   fontSize: 14,
@@ -326,4 +330,4 @@ export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {
       </div>
     </div>
   );
-};
+});
