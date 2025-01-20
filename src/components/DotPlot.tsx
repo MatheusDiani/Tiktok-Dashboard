@@ -33,7 +33,6 @@ interface TagCombination {
 }
 
 const AVAILABLE_TAGS = [
-  'heroi',
   'fantasia',
   'famoso',
   'dc',
@@ -46,6 +45,8 @@ const AVAILABLE_TAGS = [
   'mitologia',
   'fusao',
   'sem tag',
+  'anime',
+  'filme',
 ] as const;
 
 export const DotPlot: React.FC<DotPlotProps> = ({ data }) => {

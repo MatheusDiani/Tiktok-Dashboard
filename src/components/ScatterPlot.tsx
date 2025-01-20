@@ -32,11 +32,24 @@ export const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
     );
   };
 
+  const CustomTooltip = ({ active, payload }: any) => {
+    if (!active || !payload || !payload.length) return null;
+
+    const data = payload[0].payload;
+    return (
+      <div className="bg-white p-3 rounded shadow-lg border">
+        <p className="font-bold mb-2">{data.videoTitle}</p>
+        <p>Duration: {data.totalVideoTime}s</p>
+        <p>Views: {data.totalViews.toLocaleString()}</p>
+      </div>
+    );
+  };
+
   return (
     <div className="w-full h-[400px] bg-white rounded-lg shadow-lg p-4">
       <h2 className="text-xl font-bold mb-4">Video Duration vs Total Views</h2>
       <ResponsiveContainer width="100%" height="100%">
-        <ScatterChart>
+        <ScatterChart margin={{ top: 20, right: 20, bottom: 40, left: 40 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="totalVideoTime"
@@ -44,15 +57,12 @@ export const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
             unit="s"
             type="number"
           />
-          <YAxis dataKey="totalViews" name="Total Views" />
-          <Tooltip
-            cursor={{ strokeDasharray: '3 3' }}
-            formatter={(value: number, name: string) =>
-              name === 'Total Views'
-                ? value.toLocaleString()
-                : `${value.toFixed(1)}s`
-            }
+          <YAxis 
+            dataKey="totalViews" 
+            name="Total Views"
+            tickFormatter={(value) => value.toLocaleString()}
           />
+          <Tooltip content={<CustomTooltip />} />
           <Scatter
             name="Videos"
             data={data}
