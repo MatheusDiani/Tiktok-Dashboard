@@ -11,12 +11,12 @@
         4 - Feature Engineering.
         5 - Ferramentas.
         6 - Dashboard.
+        7 - Melhorias.
 
-<!-- 7 - Resultados. -->
 <!-- 8 - Melhorias. O que faria diferente? -->
 ###  1 - Definição do problema.
 
-Atualmente, sou criador de conteúdo no Tiktok e tive a necessidade de poder saber quais os melhores modelos de vídeos focar para ter mais sucesso em meu perfil e aumentar o engajamento.
+Atualmente, sou criador de conteúdo no Tiktok e tive a necessidade de saber quais os melhores modelos de vídeos focar para ter mais sucesso em meu perfil e aumentar o engajamento.
 
 ###  2 - Definição dos objetivos.
 
@@ -36,7 +36,7 @@ Além disso, eu criei 2 Tags diferentes para cada vídeo que representavam sobre
     
 ###  5 - Ferramentas.
 
-Com o grande avanço das IA's, eu pude utilizar a plataforma Bolt.new para criar uma estrutura base para meu projeto usando JavaScript e Reactjs. Para fazer as alterações específicasque julguei necessárias, utilizei o Cursor.
+Com o grande avanço das IA's, eu pude utilizar a plataforma Bolt.new para criar uma estrutura base para meu projeto usando JavaScript e Reactjs. Para fazer as alterações específicas que julguei necessárias, utilizei o Cursor.
 
 ###  6 - Dashboard.
 
@@ -62,9 +62,14 @@ Tabela:
 
 Tabela com várias informações sobre os vídeos.
 
-<!-- ###  7 - Resultados. -->
+###  7 - Melhorias.
 
-<!-- ###  8 - Melhorias. O que faria diferente? -->
+- Implementar uma API para coletar os dados dos vídeos.
+- Adicionar novas variáveis para o dashboard.
+- Adicionar mais filtros para o dashboard.
+- Criar abas para melhor organização.
+- Adicionar mais gráficos para o dashboard.
+
 
 
     
