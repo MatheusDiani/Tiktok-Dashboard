@@ -55,7 +55,7 @@ Gráfico de linha que mostra o número de visualizações, likes, comentários, 
 Gráfico 2:
 
 <div align="center">
-  <img src="Images/grafico 2.png" alt="Gráfico Dotplot - Tempo do vídeo vs Visualizações" width="300">
+  <img src="Images/grafico 2.png" alt="Gráfico Dotplot - Tempo do vídeo vs Visualizações" width="350">
 </div>
 
 Gráfico dotplot com o tempo do vídeo no eixo X e o número de views no eixo Y.
@@ -65,7 +65,7 @@ Gráfico dotplot com o tempo do vídeo no eixo X e o número de views no eixo Y.
 Gráfico 3:
 
 <div align="center">
-  <img src="Images/grafico 3.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="300">
+  <img src="Images/grafico 3.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="350">
 </div>
 
 Gráfico dotplot com o engajamento no eixo X e o proporção média assistida do vídeo no eixo Y.
@@ -75,7 +75,7 @@ Gráfico dotplot com o engajamento no eixo X e o proporção média assistida do
 Gráfico 4:
 
 <div align="center">
-  <img src="Images/grafico 4.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="500">
+  <img src="Images/grafico 4.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="600">
 </div>
 
 Gráfico dotplot com a combinação de tags no eixo X e engajamento no eixo Y.
