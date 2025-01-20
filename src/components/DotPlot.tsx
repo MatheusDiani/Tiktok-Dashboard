@@ -202,6 +202,23 @@ export const DotPlot: React.FC<DotPlotProps> = ({
     </div>
   );
 
+  const getPointColor = (item: any) => {
+    return item.views > 400000 ? '#FF4D4D' : '#4D79FF';
+  };
+
+  const customShape = (props: any) => {
+    const { cx, cy, payload } = props;
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={6}
+        fill={getPointColor(payload)}
+        opacity={0.6}
+      />
+    );
+  };
+
   return (
     <div className="w-full bg-white rounded-lg shadow-lg p-4">
       <div className="mb-4">
@@ -323,10 +340,7 @@ export const DotPlot: React.FC<DotPlotProps> = ({
             <Scatter
               name="Videos"
               data={scatterData}
-              fill="#4D79FF"
-              shape="circle"
-              r={6}
-              opacity={0.6}
+              shape={customShape}
             />
           </ScatterChart>
         </ResponsiveContainer>

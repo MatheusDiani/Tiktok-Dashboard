@@ -28,6 +28,23 @@ export const EngagementWatchTimeScatter: React.FC<EngagementWatchTimeScatterProp
     };
   });
 
+  const getPointColor = (item: ContentData) => {
+    return item.totalViews > 400000 ? '#FF4D4D' : '#4D79FF';
+  };
+
+  const customShape = (props: any) => {
+    const { cx, cy, payload } = props;
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={6}
+        fill={getPointColor(payload)}
+        opacity={0.6}
+      />
+    );
+  };
+
   const customTooltip = (props: any) => {
     const { active, payload } = props;
     
@@ -74,16 +91,7 @@ export const EngagementWatchTimeScatter: React.FC<EngagementWatchTimeScatterProp
           <Scatter
             name="Videos"
             data={processedData}
-            fill="#4D79FF"
-            shape={(props: any) => (
-              <circle
-                cx={props.cx}
-                cy={props.cy}
-                r={6}
-                fill={props.fill}
-                opacity={0.7}
-              />
-            )}
+            shape={customShape}
           />
         </ScatterChart>
       </ResponsiveContainer>

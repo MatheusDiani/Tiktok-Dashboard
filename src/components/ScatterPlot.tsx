@@ -28,6 +28,23 @@ export const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
     );
   };
 
+  const getPointColor = (item: ContentData) => {
+    return item.totalViews > 400000 ? '#FF4D4D' : '#4D79FF';
+  };
+
+  const customShape = (props: any) => {
+    const { cx, cy, payload } = props;
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={6}
+        fill={getPointColor(payload)}
+        opacity={0.6}
+      />
+    );
+  };
+
   return (
     <div className="w-full h-[400px] bg-white rounded-lg shadow-lg p-4">
       <h2 className="text-xl font-bold mb-4">Video Duration vs Total Views</h2>
@@ -49,9 +66,7 @@ export const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
           <Scatter
             name="Videos"
             data={data}
-            fill="#4D79FF"
-            r={6}
-            opacity={0.6}
+            shape={customShape}
           />
         </ScatterChart>
       </ResponsiveContainer>
