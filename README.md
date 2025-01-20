@@ -48,9 +48,9 @@ Gráfico 1:
   <img src="Images/grafico 1.png" alt="Gráfico de linha - Desempenho diário" width="600">
 </div>
 
----
-
 Gráfico de linha que mostra o número de visualizações, likes, comentários, compartilhamentos e de pessoas que acesssaram meu perifl naquele dia em específico.
+
+---
 
 Gráfico 2:
 
@@ -60,6 +60,8 @@ Gráfico 2:
 
 Gráfico dotplot com o tempo do vídeo no eixo X e o número de views no eixo Y.
 
+---
+
 Gráfico 3:
 
 <div align="center">
@@ -67,6 +69,8 @@ Gráfico 3:
 </div>
 
 Gráfico dotplot com o engajamento no eixo X e o proporção média assistida do vídeo no eixo Y.
+
+---
 
 Gráfico 4:
 
@@ -76,7 +80,13 @@ Gráfico 4:
 
 Gráfico dotplot com a combinação de tags no eixo X e engajamento no eixo Y.
 
+---
+
 Tabela:
+
+<div align="center">
+  <img src="Images/tabela.png" alt="Tabela - Vídeos" width="600">
+</div>
 
 Tabela com várias informações sobre os vídeos.
 
