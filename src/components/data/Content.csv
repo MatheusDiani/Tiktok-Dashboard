@@ -1,61 +1,106 @@
 Post day,Video title,Total video time,Total views,Total likes,Total comments,Total shares,Total saves,Avg watch time,Full watch percentage,New followers,Tags1,Tags2
-09/09/24,Wolverine futurístico,33,4577,120,27,10,9,16.8,13.6,16,heroi,marvel
-10/09/24,Deadpool branco #IA #DeadpoolSamurai #Shanghai,29,2700,627,20,10,17,13.37,6.4,19,heroi,marvel
+09/09/24,Wolverine futurístico,33,4577,120,27,10,9,16.8,13.6,16,futurista,marvel
+10/09/24,Deadpool branco #IA #DeadpoolSamurai #Shanghai,29,2700,627,20,10,17,13.37,6.4,19,sem tag,marvel
 11/09/24,Castelo rosa? #IA #Castelo #CasteloVoador,39,5000,78,2,2,5,10.48,2.0,8,fantasia,sem tag
 12/09/24,IA desenhou meu carro? #IA #Bugatti #DesenharamMeuCarro,14,6000,81,2,1,5,5.91,10.6,9,carro,sem tag
-13/09/24,Batman medieval? #IA #DC #Batman,29,473826,20707,99,198,1373,17.63,21.4,1200,heroi,dc
+13/09/24,Batman medieval? #IA #DC #Batman,29,473826,20707,99,198,1373,17.63,21.4,1200,medieval,dc
 14/09/24,Neymar no mar #IA #Neymar #PS3,22,14000,197,4,4,12,12.22,15.4,7,famoso,sem tag
 15/09/24,Albert Einstein blindado #IA #Einstein #EinsteinFuturista,25,19000,344,5,1,8,10.89,4.8,22,famoso,futurista
 16/09/24,Lancer no espaço sideral #IA #Lancer #Nave,35,180000,6000,35,91,400,17.69,7.4,445,carro,futurista
 17/09/24,Torre de Paris alienígena #IA #ParisFuturista #ColonizaçãoAlienigena,39,38000,925,9,21,26,15.27,2.9,40,fantasia,futurista
-18/09/24,Flash aranha #IA #Flash #HomemAranha,23,510002,31923,128,389,2782,16.08,26.3,2782,heroi,fusao
+18/09/24,Flash aranha #IA #Flash #HomemAranha,23,510002,31923,128,389,2782,16.08,26.3,2782,marvel,fusao
 19/09/24,Casa branca no deserto #CasaBranca #MadMax #Deserto,22,1231269,57022,154,574,6756,15.17,23.6,2400,fantasia,carro
 20/09/24,Messi em Marte #Messi #Marte #Futebol,25,298143,8211,44,41,552,15.06,20.0,404,famoso,sem tag
 21/09/24,Harry Potter medieval #HarryPotter #Winterfell #Medieval,27,48000,1000,15,24,47,11.37,4.9,84,fantasia,filme
 22/09/24,Castelo na floresta #Castelo #Floresta #Neon,27,14000,318,7,2,8,9.56,2.7,27,fantasia,sem tag
 23/09/24,Navio pirata + Dragão #IA #NavioPirata #Dragão,31,56000,1654,20,16,71,12.16,4.1,105,fantasia,medieval
 24/09/24,Power cats #PowerRangers #Gatos #Lua,27,18000,311,10,1,6,10.86,3.1,12,fantasia,sem tag
-25/09/24,Homem de Ferro #HomemdeFerro #Marvel #Cyberpunk,24,144000,6756,35,49,326,13.53,11.2,513,heroi,futurista
+25/09/24,Homem de Ferro #HomemdeFerro #Marvel #Cyberpunk,24,144000,6756,35,49,326,13.53,11.2,513,marvel,futurista
 26/09/24,Morte relaxando #Morte #Hotel #praia,16,13000,191,3,3,3,6.96,7.9,32,mitologia,sem tag
 27/09/24,Disco Voador na fazenda #DiscoVoador #Aliens #Fazenda,25,17000,358,7,3,14,8.15,2.8,29,fantasia,futurista
 28/09/24,Zeus guitarrista #Zeus #Guitarra #Raios,23,26000,387,7,10,14,9.85,5.1,39,mitologia,sem tag
 29/09/24,Lamborghini do Apocalipse #Lamborghini #Apocalipse #Zumbi,33,17000,374,8,6,10,12.49,3.2,35,carro,futurista
-30/09/24,Capitão América Ciborgue Samurai #capitãoamérica #ciborgue,28,26000,545,13,9,19,9.84,3.4,42,heroi,futurista
+30/09/24,Capitão América Ciborgue Samurai #capitãoamérica #ciborgue,28,26000,545,13,9,19,9.84,3.4,42,marvel,futurista
 01/10/24,Cristiano Ronaldo no céu #CristianoRonaldo #CR7 #Céu,23,21000,373,2,7,18,11.56,7.8,25,famoso,sem tag
 02/10/24,Cavaleiro dando grau #Cavaleiro #Grau #Moto,31,23000,511,22,5,14,12.22,4.8,54,fantasia,medieval
 03/10/24,Cowboy Cyborg exterminador do futuro #Cowboy #Cyborg,23,61000,1763,18,17,52,11.36,8.1,152,fantasia,futurista
 04/10/24,Vampirão brabo #Vampiro #Cyberpunk #IA,28,52000,1577,28,22,46,11.8,4.5,164,fantasia,futurista
-05/10/24,Batman Homem de Ferro #Batman #HomemdeFerro #Marvel,13,33000,757,26,12,24,7.26,12.2,79,heroi,fusao
+05/10/24,Batman Homem de Ferro #Batman #HomemdeFerro #Marvel,13,33000,757,26,12,24,7.26,12.2,79,marvel,dc
 06/10/24,Toytota Supra #Toyota #Supra #Neve,30,119000,5124,35,55,348,13.27,4.3,258,carro,sem tag
-07/10/24,Super Homem Demônio #SuperHomem #DC #IA,23,62000,1137,26,14,35,9.62,4.8,116,heroi,dc
-08/10/24,A responder a @wl__.mine Aranha de Ferro,26,128000,3638,123,51,135,14.79,16.9,399,heroi,fusao
+07/10/24,Super Homem Demônio #SuperHomem #DC #IA,23,62000,1137,26,14,35,9.62,4.8,116,sem tag,dc
+08/10/24,A responder a @wl__.mine Aranha de Ferro,26,128000,3638,123,51,135,14.79,16.9,399,marvel,fusao
 09/10/24,Leão dirigindo tanque #Leão #IA #segundaguerramudial,20,159000,2769,30,40,169,9.93,7.4,222,fantasia,animal
-10/10/24,A responder a @victor_czar.c.r homelander robo,30,36000,816,25,7,31,11.48,3.,83,heroi,futurista
+10/10/24,A responder a @victor_czar.c.r homelander robo,30,36000,816,25,7,31,11.48,3.,83,filme,futurista
 11/10/24,Esquilo Tocando violão #Praia #IA #violao #Esquilo,16,126000,2753,38,22,240,7.84,8.2,288,fantasia,animal
 12/10/24,Casa Branca no espaço #CasaBranca #Espaço #Espaçonave,24,35000,750,18,18,34,8.96,3.9,101,fantasia,futurista
-13/10/24,Homem Aranha demônio #HomemAranha #Marvel #IA #demonio,26,44000,1264,51,16,42,12.08,7.,163,heroi,marvel
-14/10/24,Michael Jackson Coringa #MichaelJackson #coringa #Fantasia,20,51000,1682,30,37,67,9.39,8.9,126,famoso,heroi
-15/10/24,A responder a @emesonalmeida Kratos e homem de ferro,28,107000,3238,65,78,91,12.75,9.3,293,heroi,games
+13/10/24,Homem Aranha demônio #HomemAranha #Marvel #IA #demonio,26,44000,1264,51,16,42,12.08,7.,163,sem tag,marvel
+14/10/24,Michael Jackson Coringa #MichaelJackson #coringa #Fantasia,20,51000,1682,30,37,67,9.39,8.9,126,famoso,dc
+15/10/24,A responder a @emesonalmeida Kratos e homem de ferro,28,107000,3238,65,78,91,12.75,9.3,293,marvel,games
 15/10/24,A responder a @ismaelpirai cristo redentor,21,24000,583,28,1,13,12.87,22.9,59,fantasia,futurista
 16/10/24,A responder a @aureliofranca1 Lobo mau de prata,22,29000,961,52,5,22,10.93,10.7,153,mitologia,fantasia
 17/10/24,A responder a @mazerasjb Tarzan futuristico,22,27000,769,36,4,17,11.59,10.5,49,mitologia,futurista
-17/10/24,A responder a @thiagoortega779 bolsonaro capitao america,29,42000,1107,62,19,24,13.98,7.5,47,famoso,heroi
+17/10/24,A responder a @thiagoortega779 bolsonaro capitao america,29,42000,1107,62,19,24,13.98,7.5,47,famoso,marvel
 18/10/24,A responder a @dion_maninho esquilo aviador,24,15000,322,17,2,13,10.11,5.2,18,animal,sem tag
 19/10/24,A responder a @carlos.galaqtico goku prateado,43,44000,1252,51,21,48,17.04,4.2,55,sem tag,sem tag
-19/10/24,A responder a @gaucho #MulherMaravilha #Capitamarvel,27,19000,543,22,5,10,12.41,7.5,27,heroi,fusao
-20/10/24,A responder a @corte123testando #Batman #Hulk #IA,32,28000,756,34,11,21,11.99,5.,59,heroi,fusao
+19/10/24,A responder a @gaucho #MulherMaravilha #Capitamarvel,27,19000,543,22,5,10,12.41,7.5,27,marvel,fusao
+20/10/24,A responder a @corte123testando #Batman #Hulk #IA,32,28000,756,34,11,21,11.99,5.,59,dc,marvel
 21/10/24,A responder a @amilton.becher Nissan R34 GTR preto ,32,13000,383,20,4,14,12.65,3.4,20,carro,sem tag
-22/10/24,A responder a @tullio_pires Batlambo #Lamborghi #batmovel #batman,29,21000,621,21,9,15,10.72,4.7,28,carro,heroi
-23/10/24,A responder a @novedoisofc Venom Roxo #Venom ,32,31000,888,21,6,26,15.59,10.6,49,heroi,sem tag
-24/10/24,A responder a @augustoalbuquerqu2 Vegeta Batman,35,42000,1114,44,11,19,16.54,9.3,53,heroi,fusao
-25/10/24,A responder a @pd_malandrex Deadwolvenom?,29,18000,489,24,2,6,11.72,4.4,13,heroi,fusao
+22/10/24,A responder a @tullio_pires Batlambo #Lamborghi #batmovel #batman,29,21000,621,21,9,15,10.72,4.7,28,carro,dc
+23/10/24,A responder a @novedoisofc Venom Roxo #Venom ,32,31000,888,21,6,26,15.59,10.6,49,marvel,sem tag
+24/10/24,A responder a @augustoalbuquerqu2 Vegeta Batman,35,42000,1114,44,11,19,16.54,9.3,53,dc,anime
+25/10/24,A responder a @pd_malandrex Deadwolvenom?,29,18000,489,24,2,6,11.72,4.4,13,marvel,fusao
 26/10/24,A responder a @victor_dvs_26Pintcher Medieval ,30,15000,331,12,2,8,12.22,3.7,11,animal,medieval
-27/10/24,A responder a @rei_da_zorrinha Neythor,23,13000,285,20,4,6,10.78,8.,13,famoso,heroi
+27/10/24,A responder a @rei_da_zorrinha Neythor,23,13000,285,20,4,6,10.78,8.,13,famoso,mavel
 28/10/24,A responder a @niltoncesar512 Teletubbies mal,35,11000,250,19,2,3,14.99,7.5,8,fantasia,sem tag
-29/10/24,Batman Branco e Vermelho #Batman #DC #Vulcao,38,124000,4645,34,69,370,17.38,8.1,158,heroi,dc
-30/10/24,A responder a @davialves.w Spawn Rider,28,31000,834,28,11,27,12.41,6.7,65,heroi,marvel
+29/10/24,Batman Branco e Vermelho #Batman #DC #Vulcao,38,124000,4645,34,69,370,17.38,8.1,158,dc,dc
+30/10/24,A responder a @davialves.w Spawn Rider,28,31000,834,28,11,27,12.41,6.7,65,fusao,marvel
 31/10/24,Pato Rei #Pato #Rei #Lagoa #IA,19,20000,320,12,7,11,8.26,4.,18,animal,medieval
-02/11/24,A responder a @victor_dvs_26 Cavalo do Venom,27,28000,625,28,8,13,13.12,13.1,42,heroi,animal
+02/11/24,A responder a @victor_dvs_26 Cavalo do Venom,27,28000,625,28,8,13,13.12,13.1,42,marvel,animal
 04/11/24,A responder a @l.tlnani Esqueleto Pirata com metralhadora,32,17000,418,13,1,9,12.75,5.,26,fantasia,medieval
-03/11/24,Bataranha #Batman #homemaranha,28,23000,692,22,12,25,13.36,8.6,24,heroi,fusao
-04/11/24,A responder a @victor_dvs_26 Goku zumbi ,35,46000,1075,24,10,26,15.29,5.4,97,sem tag,sem tag
+08/11/24,Bataranha #Batman #homemaranha,28,23000,692,22,12,25,13.36,8.6,24,marvel,dc
+10/11/24,A responder a @victor_dvs_26 Goku zumbi ,35,46000,1075,24,10,26,15.29,5.4,97,sem tag,sem tag
+10/11/24,Baleias Voadoras #Baleias #Castelo #ceu,28,31000,563,19,11,22,13.29,8.7,34,fantasia,sem tag
+11/11/24,A responder a @igorjose1748 Batjoker #batman #joker #coringa #ia,35,28000,860,29,7,23,15.32,7.6,57,fusao,dc
+12/11/24,A responder a @natalinas051 Chuckyart #chucky #terrifier #ia,31,15000,262,13,1,11,13.97,8.8,19,filme,fusao
+14/11/24,Formiga Ciborgue #formiga #cyborg #cemiterio,23,17000,311,13,0,14,10.31,4.8,22,fantasia,sem tag
+15/11/24,A responder a @adamcardosocwb Capitão América Zumbi ,22,13000,271,16,4,7,7.89,6.8,28,marvel,sem tag
+16/11/24,A responder a @wells.azeredo Nikola Tesla futurista #nikolatesla,34,17000,374,25,1,6,12.48,3.2,25,famoso,fantasia
+17/11/24,Homem de Ferro dourado egipcio chifrudo,27,254000,7298,58,135,786,16.02,18.6,349,marvel,sem tag
+18/11/24,A responder a @eduardocastanha12 Dareboy #darevil,27,15000,239,16,2,3,12.,5.5,21,marvel,filme
+19/11/24,A responder a @davialves.w Majin Venom ,28,211000,4553,70,76,139,12.49,8.6,668,fusao,marvel
+20/11/24,Messi e Cristiano Ronaldo comendo pão de queijo,20,23000,174,24,4,6,12.87,18.9,12,famoso,sem tag
+21/11/24,A responder a @eder.giovan Corinthanos,24,118000,2759,96,60,62,12.,13.1,447,dc,marvel
+22/11/24,A responder a @levitawesley1 Goku Venom,24,122000,2715,91,89,79,9.1,6.3,456,anime,sem tag
+23/11/24,A responder a @tiagosilveira85 Optimus Hulk,24,206000,4533,105,50,120,12.5,14.5,820,filme,marvel
+24/11/24,Rick Shelby #rickgrimes #thomasshelby #ia,26,12000,177,14,3,7,10.18,2.7,15,filme,fusao
+25/11/24,"BatVenom, Hulkgeta ,Hulkanos",60,20000,599,38,13,13,12.73,3.5,47,marvel,dc
+26/11/24,A responder a @tiagodealmeidamazim Leão de Lava,60,139000,4279,101,105,214,21.68,3.1,584,fantasia,sem tag
+27/11/24,A responder a @delsopsv Gothanos #goku ,22,92000,1830,62,42,46,9.91,11.5,172,marvel,anime
+28/11/24,A responder a @tiagodealmeidamazim OptimusZilla ,23,25000,775,14,12,28,11.14,9.3,82,filme,sem tag
+29/11/24,"A responder a @anderson1duran Jason Krueger, Wolverine Krueger",60,46000,1259,33,17,46,14.49,3.2,164,fusao,filme
+01/12/24,Lobo Galáctico #Lobo #galaxias #ceu,60,1200000,96000,277,1678,10000,27,3.3,2200,fantasia,sem tag
+01/12/24,A responder a @danhbessa Lokhanos,19,21000,467,34,2,16,8.72,9.7,47,marvel,fusao
+02/12/24,A responder a @leobonatti Coringa de Ferro ,33,58000,1405,32,19,47,13.47,9.4,92,marvel,dc
+03/12/24,Pantera Negra e Fogo #panteranegra #fogo #ia,60,404000,13000,48,147,899,22.77,1.4,336,fantasia,sem tag
+04/12/24,A responder a @tjjunior320 Gokultron ,22,52000,1352,47,23,41,9.31,9.,91,anime,marvel
+06/12/24,A responder a @antnio.ray8 Beerom #bils #beerus ,20,17000,410,30,1,12,9.16,8.2,13,anime,marvel
+06/12/24,Veado na Neve #Veado #cervo #neve,60,65000,1163,16,7,54,15.37,0.3,37,fantasia,sem tag
+07/12/24,"A responder a @shazam095 Super Darkseid, Opitmus Man e ??? ",60,9386,225,20,2,1,9.59,1,10,dc,fusao
+08/12/24,A responder a @wilianguerreiroor5 Helljoker #hellboy #joker ,19,9858,235,13,3,5,9.92,8.1,4,dc,fusao
+09/12/24,A responder a @andersondias8414 Aqueiro verde,22,9119,193,25,1,5,7.74,3.9,7,dc,fusao
+11/12/24,A responder a @sidcleyandradebat Optimus Bee #Bumblebee,27,18000,514,19,5,15,10.48,5.6,16,filme,fusao
+12/12/24,Coringa Medieval #,60,43000,749,20,5,38,16.37,0.5,33,dc,fantasia
+13/12/24,A responder a @wilianguerreiroor5 Loki Noel,26,11000,305,25,2,9,10.05,3.9,11,marvel,fusao
+15/12/24,Loki de Ferro #loki #homemdeferro #fusao,60,47000,829,11,5,49,16.51,0.5,22,marvel,fusao
+16/12/24,A responder a @wilianguerreiroor5 Thanorine,27,7153,201,20,1,3,8.28,4.7,7,marvel,fusao
+17/12/24,A responder a @deivid_d.a.c Gokuringa,24,7885,223,27,8,9,8.55,5.4,11,anime,dc
+17/12/24,Caveira sob a lua de caveira #caveira #trono #lua,60,484000,22000,83,369,3280,19.48,1.3,680,fantasia,sem tag
+19/12/24,A responder a @walison.benigno Barbenom #barbie ,17,12000,244,16,5,5,8.84,11.7,9,marvel,fusao
+20/12/24,Cavaleiro Negro #cavaleiro #cavalo #nevoeiro,60,17000,302,22,3,9,12.57,0.5,18,fantasia,medieval
+21/12/24,A responder a @jadielramos6712 Cavaleiro da lua Hulk,24,15000,376,16,0,10,9.7,6.1,14,marvel,fusao
+22/12/24,Leão Azul Elétrico #leão #azul #eletrico,60,14000,229,17,3,14,13.62,0.5,11,fantasia,sem tag
+22/12/24,A responder a @shazam095 Venom Predador #venom,27,13000,309,22,1,7,11.13,8.2,21,marvel,fusao
+23/12/24,Kraku #kratos #goku #fusao,28,12000,325,24,6,15,11.2,6.2,9,games,anime
+24/12/24,A responder a @inuyashamelotto2.0 Thor Noel,19,8256,192,10,1,4,7.88,5.9,9,marvel,fusao
+25/12/24,A responder a @bruceoliveirasouz2 Thanos Lee,24,11000,225,18,2,3,8.92,4.3,17,marvel,fusao
+26/12/24,Papai Noel Cyberpunk #papainoel #natal #cyberpunk,60,10000,180,10,0,7,12.04,0.3,16,fantasia,futurista
