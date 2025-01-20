@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import * as d3 from 'd3'; // Biblioteca para carregar CSVs
 import { TrendChart } from './components/TrendChart';
 import { ContentTable } from './components/ContentTable';
@@ -89,59 +89,52 @@ function App() {
     }));
   };
 
-  // Aplicar filtros nos dados
-  const filteredOverviewData = overviewData.filter((item) => {
-    const itemDate = new Date(item.date);
-    const startDate = new Date(dateRange.start);
-    const endDate = new Date(dateRange.end);
+  // Função para filtrar dados baseado nas combinações de tags
+  const filterDataByTagCombinations = useCallback((data: ContentData[]) => {
+    if (tagCombinations.length === 0) return data;
 
-    return (
-      itemDate >= startDate &&
-      itemDate <= endDate &&
-      item.videoViews >= viewsRange.min &&
-      item.videoViews <= viewsRange.max
-    );
-  });
+    return data.filter(item => {
+      const itemTags = new Set([
+        item.tags1?.toLowerCase().trim(),
+        item.tags2?.toLowerCase().trim()
+      ].filter(Boolean));
 
-  const filteredContentData = contentData.filter((item) => {
-    try {
-      if (!item.postDay) {
-        console.warn('Item sem data:', item);
-        return false;
-      }
+      // Retorna true se o item corresponde a qualquer uma das combinações
+      return tagCombinations.some(combination => 
+        combination.tags.every(tag => 
+          itemTags.has(tag.toLowerCase().trim())
+        )
+      );
+    });
+  }, [tagCombinations]);
 
-      const itemDate = convertDate(item.postDay);
-      const startDate = new Date(dateRange.start);
-      const endDate = new Date(dateRange.end);
+  // Aplicar ambos os filtros (data/views e tags)
+  const filteredContentData = useMemo(() => {
+    // Primeiro aplica os filtros de data e views
+    const dateAndViewsFiltered = contentData.filter((item) => {
+      try {
+        if (!item.postDay) {
+          return false;
+        }
 
-      // Adicionar logs para debug
-      console.log('Filtragem:', {
-        item: item.videoTitle,
-        date: itemDate.toISOString(),
-        views: item.totalViews,
-        incluído: 
+        const itemDate = convertDate(item.postDay);
+        const startDate = new Date(dateRange.start);
+        const endDate = new Date(dateRange.end);
+
+        return (
           itemDate >= startDate && 
           itemDate <= endDate && 
           item.totalViews >= viewsRange.min && 
           item.totalViews <= viewsRange.max
-      });
+        );
+      } catch (error) {
+        return false;
+      }
+    });
 
-      return (
-        itemDate >= startDate && 
-        itemDate <= endDate && 
-        item.totalViews >= viewsRange.min && 
-        item.totalViews <= viewsRange.max
-      );
-    } catch (error) {
-      console.error('Erro ao filtrar item:', item, error);
-      return false;
-    }
-  });
-
-  // Função para atualizar as combinações de tags
-  const updateTagCombinations = useCallback((newCombinations: typeof tagCombinations) => {
-    setTagCombinations(newCombinations);
-  }, []);
+    // Depois aplica o filtro de tags
+    return filterDataByTagCombinations(dateAndViewsFiltered);
+  }, [contentData, dateRange, viewsRange, filterDataByTagCombinations]);
 
   useEffect(() => {
     // Carregar e mapear Overview.csv
@@ -212,6 +205,11 @@ function App() {
 
   console.log('Filtered Content Data for ScatterPlot:', filteredContentData);
 
+  // Função para atualizar as combinações de tags
+  const updateTagCombinations = useCallback((newCombinations: typeof tagCombinations) => {
+    setTagCombinations(newCombinations);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-7xl mx-auto">
@@ -233,7 +231,7 @@ function App() {
 
         <div className="space-y-6">
           <TrendChart
-            data={filteredOverviewData} // Passar os dados filtrados
+            data={overviewData} // Passar os dados filtrados
             visibleMetrics={visibleMetrics}
             onToggleMetric={toggleMetric}
           />
@@ -259,7 +257,14 @@ function App() {
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-4 mt-6">
-            <h2 className="text-xl font-bold mb-4">Content Performance</h2>
+            <h2 className="text-xl font-bold mb-4">
+              Content Performance
+              {tagCombinations.length > 0 && (
+                <span className="text-sm font-normal text-gray-500 ml-2">
+                  (Filtered by selected tag combinations)
+                </span>
+              )}
+            </h2>
             <ContentTable data={filteredContentData} />
           </div>
         </div>

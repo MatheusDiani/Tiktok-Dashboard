@@ -20,6 +20,7 @@ export interface ContentData {
   totalVideoTime: number;
   fullWatchPercentage: string | number; // <--- Importante
   newFollowers: number;
+  postDay: string;
 }
 
 interface ContentTableProps {
@@ -80,6 +81,10 @@ const columns = [
   columnHelper.accessor('newFollowers', {
     header: 'New Followers',
     cell: (info) => info.getValue().toLocaleString(),
+  }),
+  columnHelper.accessor('postDay', {
+    header: 'Post Date',
+    cell: (info) => info.getValue(),
   }),
 ];
 
