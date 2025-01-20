@@ -40,7 +40,13 @@ Com o grande avanço das IA's, eu pude utilizar a plataforma Bolt.new para criar
 
 ###  6 - Dashboard.
 
-Primeiramente, criei filtros globais para o dashboard, pois gostaria de ter o controle do período em que os vídeos eram e também a quantidade de visualizações que eles tinha. Pois, existem períodos em que os vídeos tem mais visualizações e outros em que tem menos, e, também, comparar padrões de desempenho em vídeos com diferentes visualizações.
+Primeiramente, criei filtros globais no dashboard para controlar tanto o período de publicação dos vídeos quanto a quantidade de visualizações. Pois, existem períodos em que os vídeos tem mais visualizações e outros em que tem menos, além de poder comparar padrões de desempenho em vídeos com diferentes visualizações.
+
+<div align="center">
+  <img src="Images/filtro.png" alt="Filtros do dashboard" width="300">
+</div>
+
+---
 
 Gráfico 1:
 
