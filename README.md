@@ -11,9 +11,9 @@
         4 - Feature Engineering.
         5 - Ferramentas.
         6 - Dashboard.
-        7 - Melhorias.
+        7 - Resultados.
+        8 - Melhorias.
 
-<!-- 8 - Melhorias. O que faria diferente? -->
 ###  1 - Definição do problema.
 
 Atualmente, sou criador de conteúdo no Tiktok e tive a necessidade de saber quais os melhores modelos de vídeos focar para ter mais sucesso em meu perfil e aumentar o engajamento.
@@ -44,9 +44,19 @@ Primeiramente, criei filtros globais para o dashboard, pois gostaria de ter o co
 
 Gráfico 1:
 
+<div align="center">
+  <img src="Images/grafico1.png" alt="Gráfico de linha - Desempenho diário" width="600">
+</div>
+
+---
+
 Gráfico de linha que mostra o número de visualizações, likes, comentários, compartilhamentos e de pessoas que acesssaram meu perifl naquele dia em específico.
 
 Gráfico 2:
+
+<div align="center">
+  <img src="Images/grafico2.png" alt="Gráfico Dotplot - Tempo do vídeo vs Visualizações" width="600">
+</div>
 
 Gráfico dotplot com o tempo do vídeo no eixo X e o número de views no eixo Y.
 
@@ -62,7 +72,11 @@ Tabela:
 
 Tabela com várias informações sobre os vídeos.
 
-###  7 - Melhorias.
+###  7 - Resultados.
+
+
+
+###  8 - Melhorias.
 
 - Implementar uma API para coletar os dados dos vídeos.
 - Adicionar novas variáveis para o dashboard.
