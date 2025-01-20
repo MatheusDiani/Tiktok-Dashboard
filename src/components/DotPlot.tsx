@@ -24,6 +24,16 @@ interface ContentData {
 
 interface DotPlotProps {
   data: ContentData[];
+  tagCombinations: Array<{
+    id: number;
+    tags: string[];
+    label: string;
+  }>;
+  onTagCombinationsChange: (combinations: Array<{
+    id: number;
+    tags: string[];
+    label: string;
+  }>) => void;
 }
 
 interface TagCombination {
@@ -49,10 +59,11 @@ const AVAILABLE_TAGS = [
   'filme',
 ] as const;
 
-export const DotPlot = forwardRef<{ getTagCombinations: () => TagCombination[] }, DotPlotProps>(({ data }, ref) => {
-  const [tagCombinations, setTagCombinations] = useState<TagCombination[]>([
-    { id: 1, tags: ['heroi', 'marvel'], label: 'heroi + marvel' },
-  ]);
+export const DotPlot: React.FC<DotPlotProps> = ({
+  data,
+  tagCombinations,
+  onTagCombinationsChange
+}) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   // Função para calcular o engajamento
@@ -102,19 +113,19 @@ export const DotPlot = forwardRef<{ getTagCombinations: () => TagCombination[] }
   const addCombination = () => {
     if (selectedTags.length === 0) return;
 
-    const newId = Math.max(0, ...tagCombinations.map((c) => c.id)) + 1;
+    const newId = Math.max(0, ...tagCombinations.map(c => c.id)) + 1;
     const label = selectedTags.join(' + ');
 
-    setTagCombinations((prev) => [
-      ...prev,
-      { id: newId, tags: [...selectedTags], label },
+    onTagCombinationsChange([
+      ...tagCombinations,
+      { id: newId, tags: [...selectedTags], label }
     ]);
 
     setSelectedTags([]);
   };
 
   const removeCombination = (id: number) => {
-    setTagCombinations((prev) => prev.filter((c) => c.id !== id));
+    onTagCombinationsChange(tagCombinations.filter(c => c.id !== id));
   };
 
   const toggleTag = (tag: string) => {
@@ -190,14 +201,6 @@ export const DotPlot = forwardRef<{ getTagCombinations: () => TagCombination[] }
       </div>
     </div>
   );
-
-  // Expor as combinações de tags para outros componentes
-  const getTagCombinations = () => tagCombinations;
-
-  // Tornar a referência disponível externamente
-  useImperativeHandle(ref, () => ({
-    getTagCombinations
-  }));
 
   return (
     <div className="w-full bg-white rounded-lg shadow-lg p-4">
@@ -330,4 +333,4 @@ export const DotPlot = forwardRef<{ getTagCombinations: () => TagCombination[] }
       </div>
     </div>
   );
-});
+};

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import * as d3 from 'd3'; // Biblioteca para carregar CSVs
 import { TrendChart } from './components/TrendChart';
 import { ContentTable } from './components/ContentTable';
@@ -73,6 +73,15 @@ function App() {
   // Adicionar ref para o DotPlot
   const dotPlotRef = useRef<{ getTagCombinations: () => Array<{ id: number; tags: string[]; label: string; }> }>(null);
 
+  // Adicionar estado para as combinações de tags
+  const [tagCombinations, setTagCombinations] = useState<Array<{
+    id: number;
+    tags: string[];
+    label: string;
+  }>>([
+    { id: 1, tags: ['marvel', 'dc'], label: 'marvel + dc' }
+  ]);
+
   const toggleMetric = (metric: string) => {
     setVisibleMetrics((prev) => ({
       ...prev,
@@ -128,6 +137,11 @@ function App() {
       return false;
     }
   });
+
+  // Função para atualizar as combinações de tags
+  const updateTagCombinations = useCallback((newCombinations: typeof tagCombinations) => {
+    setTagCombinations(newCombinations);
+  }, []);
 
   useEffect(() => {
     // Carregar e mapear Overview.csv
@@ -231,15 +245,16 @@ function App() {
 
           <div className="mt-6">
             <DotPlot 
-              ref={dotPlotRef}
-              data={filteredContentData} 
+              data={filteredContentData}
+              tagCombinations={tagCombinations}
+              onTagCombinationsChange={updateTagCombinations}
             />
           </div>
 
           <div className="mt-6">
             <CombinedMetricsChart 
               data={filteredContentData}
-              tagCombinations={dotPlotRef.current?.getTagCombinations() || []}
+              tagCombinations={tagCombinations}
             />
           </div>
 
