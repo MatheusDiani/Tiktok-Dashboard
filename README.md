@@ -45,7 +45,7 @@ Primeiramente, criei filtros globais para o dashboard, pois gostaria de ter o co
 Gráfico 1:
 
 <div align="center">
-  <img src="Images/grafico1.png" alt="Gráfico de linha - Desempenho diário" width="600">
+  <img src="Images/grafico 1.png" alt="Gráfico de linha - Desempenho diário" width="600">
 </div>
 
 ---
@@ -55,16 +55,24 @@ Gráfico de linha que mostra o número de visualizações, likes, comentários, 
 Gráfico 2:
 
 <div align="center">
-  <img src="Images/grafico2.png" alt="Gráfico Dotplot - Tempo do vídeo vs Visualizações" width="600">
+  <img src="Images/grafico 2.png" alt="Gráfico Dotplot - Tempo do vídeo vs Visualizações" width="600">
 </div>
 
 Gráfico dotplot com o tempo do vídeo no eixo X e o número de views no eixo Y.
 
 Gráfico 3:
 
+<div align="center">
+  <img src="Images/grafico 3.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="600">
+</div>
+
 Gráfico dotplot com o engajamento no eixo X e o proporção média assistida do vídeo no eixo Y.
 
 Gráfico 4:
+
+<div align="center">
+  <img src="Images/grafico 4.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="600">
+</div>
 
 Gráfico dotplot com a combinação de tags no eixo X e engajamento no eixo Y.
 
