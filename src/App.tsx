@@ -8,7 +8,7 @@ import { LayoutGrid } from 'lucide-react';
 import { EngagementWatchTimeScatter } from './components/EngagementWatchTimeScatter';
 import { DotPlot } from './components/DotPlot';
 import { CombinedMetricsChart } from './components/CombinedMetricsChart';
-import { parse, format } from 'date-fns'; // Adicionar imports do date-fns
+import { format } from 'date-fns'; // Adicionar imports do date-fns
 
 // Tipos para os dados
 type OverviewData = {
@@ -90,23 +90,6 @@ function App() {
   };
 
   // Função para filtrar dados baseado nas combinações de tags
-  const filterDataByTagCombinations = useCallback((data: ContentData[]) => {
-    if (tagCombinations.length === 0) return data;
-
-    return data.filter(item => {
-      const itemTags = new Set([
-        item.tags1?.toLowerCase().trim(),
-        item.tags2?.toLowerCase().trim()
-      ].filter(Boolean));
-
-      // Retorna true se o item corresponde a qualquer uma das combinações
-      return tagCombinations.some(combination => 
-        combination.tags.every(tag => 
-          itemTags.has(tag.toLowerCase().trim())
-        )
-      );
-    });
-  }, [tagCombinations]);
 
   // Aplicar ambos os filtros (data/views e tags)
   const filteredContentData = useMemo(() => {
