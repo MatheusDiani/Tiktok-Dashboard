@@ -46,7 +46,6 @@ Primeiramente, criei filtros globais no dashboard para controlar tanto o períod
   <img src="Images/filtro.png" alt="Filtros do dashboard" width="600">
 </div>
 
----
 
 Gráfico 1:
 
@@ -56,7 +55,6 @@ Gráfico 1:
 
 Gráfico de linha que mostra o número de visualizações, likes, comentários, compartilhamentos e de pessoas que acesssaram meu perifl naquele dia em específico.
 
----
 
 Gráfico 2:
 
@@ -66,7 +64,6 @@ Gráfico 2:
 
 Gráfico dotplot com o tempo do vídeo no eixo X e o número de views no eixo Y.
 
----
 
 Gráfico 3:
 
@@ -76,7 +73,6 @@ Gráfico 3:
 
 Gráfico dotplot com o engajamento no eixo X e o proporção média assistida do vídeo no eixo Y.
 
----
 
 Gráfico 4:
 
@@ -86,7 +82,6 @@ Gráfico 4:
 
 Gráfico dotplot com a combinação de tags no eixo X e engajamento no eixo Y.
 
----
 
 Tabela:
 
@@ -108,10 +103,4 @@ Com o dashboard, posso ter uma visão geral do desempenho das minhas postagens, 
 - Criar abas para melhor organização.
 - Adicionar mais gráficos.
 
-
-
-    
-
-
-
-
+---
