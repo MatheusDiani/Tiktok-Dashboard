@@ -5,6 +5,7 @@
     <img src="Images/dashboard.png" alt="Dashboard do TikTok Analytics" width="300">
   </a>
 </div>
+[Dashboard](https://tiktokdashboard.netlify.app)
 
     Sumário:
         1 - Definição do problema.
