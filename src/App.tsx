@@ -141,7 +141,7 @@ function App() {
 
   useEffect(() => {
     // Carregar e mapear Overview.csv
-    d3.csv('./src/components/data/Overview.csv', (row) => ({
+    d3.csv('/Overview.csv', (row) => ({
       date: row.Date || '',
       videoViews: Number(row['Video Views'] || 0),
       profileViews: Number(row['Profile Views'] || 0),
@@ -156,7 +156,7 @@ function App() {
       .catch((error) => console.error('Erro ao carregar Overview.csv:', error));
 
     // Carregar e mapear Content.csv
-    d3.csv('./src/components/data/Content.csv')
+    d3.csv('/Content.csv')
       .then((rawData) => {
         console.log('Content.csv - Dados brutos:', rawData);
         
