@@ -88,7 +88,7 @@ Gráfico 5:
   <img src="Images/grafico 5.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="600">
 </div>
 
-Gráfico de linhas e barras com a combinação de tags no eixo X, % média do tempo assistido no eixo Y na esquerda e o número de novos seguidores no eixo Y na direita.
+Gráfico de linhas e barras que combina categorias no eixo X, com a % média do tempo assistido no eixo Y à esquerda e o número de novos seguidores no eixo Y à direita.
 
 
 Tabela:

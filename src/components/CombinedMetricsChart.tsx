@@ -81,7 +81,7 @@ export const CombinedMetricsChart: React.FC<CombinedMetricsChartProps> = ({
   return (
     <div className="w-full h-[500px] bg-white rounded-lg shadow-lg p-4">
       <h2 className="text-xl font-bold mb-4">
-        Average Watch Time & Total New Followers by Category
+        Average Watch Time & Total New Followers by Tag Combinations
       </h2>
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
