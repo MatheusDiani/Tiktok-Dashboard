@@ -7,6 +7,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { ArrowUpDown } from 'lucide-react';
+import { format, parse } from 'date-fns';
 
 // Ajuste a tipagem de ContentData para que 'fullWatchPercentage' seja string ou number
 export interface ContentData {
@@ -84,7 +85,19 @@ const columns = [
   }),
   columnHelper.accessor('postDay', {
     header: 'Post Date',
-    cell: (info) => info.getValue(),
+    cell: (info) => {
+      const dateStr = info.getValue();
+      try {
+        // Se a data já estiver no formato yyyy-MM-dd
+        if (dateStr.includes('-')) {
+          return format(new Date(dateStr), 'dd/MM/yyyy');
+        }
+        // Se a data ainda estiver no formato dd/MM/yy
+        return format(parse(dateStr, 'dd/MM/yy', new Date()), 'dd/MM/yyyy');
+      } catch (error) {
+        return dateStr; // Retorna a string original em caso de erro
+      }
+    },
   }),
 ];
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import * as d3 from 'd3'; // Biblioteca para carregar CSVs
 import { TrendChart } from './components/TrendChart';
 import { ContentTable } from './components/ContentTable';
@@ -8,6 +8,7 @@ import { LayoutGrid } from 'lucide-react';
 import { EngagementWatchTimeScatter } from './components/EngagementWatchTimeScatter';
 import { DotPlot } from './components/DotPlot';
 import { CombinedMetricsChart } from './components/CombinedMetricsChart';
+import { parse, format } from 'date-fns'; // Adicionar imports do date-fns
 
 // Tipos para os dados
 type OverviewData = {
@@ -35,16 +36,19 @@ type ContentData = {
   tags2: string;
 };
 
-// Adicionar função auxiliar para converter data
+// Atualizar função de conversão de data
 function convertDate(dateStr: string): Date {
   try {
-    const [day, month, year] = dateStr.split('/').map(num => parseInt(num, 10));
-    // Garantir que o ano seja 2024 para as datas do CSV
-    const fullYear = year < 100 ? 2000 + year : year;
-    return new Date(fullYear, month - 1, day);
+    // Parse a data no formato dd/MM/yy para um objeto Date
+    const parsedDate = parse(dateStr, 'dd/MM/yy', new Date());
+    
+    // Formatar a data no formato yyyy-MM-dd (opcional, caso precise da string formatada)
+    const formattedDate = format(parsedDate, 'yyyy-MM-dd');
+    
+    return parsedDate;
   } catch (error) {
     console.error('Erro ao converter data:', dateStr, error);
-    return new Date(); // Data padrão em caso de erro
+    return new Date();
   }
 }
 
@@ -53,7 +57,7 @@ function App() {
   const [contentData, setContentData] = useState<ContentData[]>([]);
 
   const [visibleMetrics, setVisibleMetrics] = useState<Record<string, boolean>>({
-    videoViews: true,
+    videoViews: true,asdf
     profileViews: true,
     likes: true,
     comments: true,
@@ -71,7 +75,6 @@ function App() {
   });
 
   // Adicionar ref para o DotPlot
-  const dotPlotRef = useRef<{ getTagCombinations: () => Array<{ id: number; tags: string[]; label: string; }> }>(null);
 
   // Adicionar estado para as combinações de tags
   const [tagCombinations, setTagCombinations] = useState<Array<{
@@ -158,7 +161,7 @@ function App() {
         console.log('Content.csv - Dados brutos:', rawData);
         
         const processedData = rawData.map(row => ({
-          postDay: row['Post day'] || '',
+          postDay: format(parse(row['Post day'], 'dd/MM/yy', new Date()), 'yyyy-MM-dd'),
           videoTitle: row['Video title'] || '',
           totalVideoTime: parseFloat(row['Total video time'] || '0'),
           totalViews: parseInt(row['Total views']?.replace(/,/g, '') || '0', 10),
