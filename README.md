@@ -1,7 +1,9 @@
 # Tiktok Dashboard
 
 <div align="center">
-  <img src="Images/dashboard.png" alt="Dashboard do TikTok Analytics" width="300">
+  <a href="https://tiktokdashboard.netlify.app" target="_blank">
+    <img src="Images/dashboard.png" alt="Dashboard do TikTok Analytics" width="300">
+  </a>
 </div>
 
     Sumário:
