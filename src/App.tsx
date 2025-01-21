@@ -43,7 +43,6 @@ function convertDate(dateStr: string): Date {
     const parsedDate = parse(dateStr, 'dd/MM/yy', new Date());
     
     // Formatar a data no formato yyyy-MM-dd (opcional, caso precise da string formatada)
-    const formattedDate = format(parsedDate, 'yyyy-MM-dd');
     
     return parsedDate;
   } catch (error) {
