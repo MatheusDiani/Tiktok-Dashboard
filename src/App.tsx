@@ -40,11 +40,9 @@ type ContentData = {
 function convertDate(dateStr: string): Date {
   try {
     // Parse a data no formato dd/MM/yy para um objeto Date
-    const parsedDate = parse(dateStr, 'dd/MM/yy', new Date());
-    
-    // Formatar a data no formato yyyy-MM-dd (opcional, caso precise da string formatada)
-    
-    return parsedDate;
+    const [day, month, year] = dateStr.split('/').map(num => parseInt(num, 10));
+    const fullYear = year < 100 ? 2000 + year : year;
+    return new Date(fullYear, month - 1, day);
   } catch (error) {
     console.error('Erro ao converter data:', dateStr, error);
     return new Date();
@@ -65,7 +63,7 @@ function App() {
 
   const [dateRange, setDateRange] = useState({
     start: '2024-09-09',
-    end: '2025-02-29',
+    end: '2024-12-26',
   });
 
   const [viewsRange, setViewsRange] = useState({
@@ -112,14 +110,9 @@ function App() {
 
   // Aplicar ambos os filtros (data/views e tags)
   const filteredContentData = useMemo(() => {
-    // Primeiro aplica os filtros de data e views
-    const dateAndViewsFiltered = contentData.filter((item) => {
+    return contentData.filter((item) => {
       try {
-        if (!item.postDay) {
-          return false;
-        }
-
-        const itemDate = convertDate(item.postDay);
+        const itemDate = new Date(item.postDay);
         const startDate = new Date(dateRange.start);
         const endDate = new Date(dateRange.end);
 
@@ -133,10 +126,7 @@ function App() {
         return false;
       }
     });
-
-    // Depois aplica o filtro de tags
-    return filterDataByTagCombinations(dateAndViewsFiltered);
-  }, [contentData, dateRange, viewsRange, filterDataByTagCombinations]);
+  }, [contentData, dateRange, viewsRange]);
 
   useEffect(() => {
     // Carregar e mapear Overview.csv
@@ -150,35 +140,30 @@ function App() {
     }))
       .then((data) => {
         setOverviewData(data as OverviewData[]);
-        console.log('Overview Data:', data);
       })
       .catch((error) => console.error('Erro ao carregar Overview.csv:', error));
 
     // Carregar e mapear Content.csv
     d3.csv('/Content.csv')
       .then((rawData) => {
-        console.log('Content.csv - Dados brutos:', rawData);
-        
-        const processedData = rawData.map(row => ({
-          postDay: format(parse(row['Post day'], 'dd/MM/yy', new Date()), 'yyyy-MM-dd'),
-          videoTitle: row['Video title'] || '',
-          totalVideoTime: parseFloat(row['Total video time'] || '0'),
-          totalViews: parseInt(row['Total views']?.replace(/,/g, '') || '0', 10),
-          totalLikes: parseInt(row['Total likes']?.replace(/,/g, '') || '0', 10),
-          totalComments: parseInt(row['Total comments']?.replace(/,/g, '') || '0', 10),
-          totalShares: parseInt(row['Total shares']?.replace(/,/g, '') || '0', 10),
-          totalSaves: parseInt(row['Total saves']?.replace(/,/g, '') || '0', 10),
-          avgWatchTime: parseFloat(row['Avg watch time'] || '0'),
-          fullWatchPercentage: parseFloat((row['Full watch percentage'] || '0').replace('%', '')),
-          newFollowers: parseInt(row['New followers']?.replace(/,/g, '') || '0', 10),
-          tags1: row['Tags1']?.toLowerCase().trim() || '',
-          tags2: row['Tags2']?.toLowerCase().trim() || '',
-        }));
-
-        console.log('Content.csv - Dados processados:', {
-          total: processedData.length,
-          amostra: processedData.slice(0, 3),
-          tags: processedData.map(item => ({ tags1: item.tags1, tags2: item.tags2 }))
+        const processedData = rawData.map(row => {
+          // Converter a data para o formato correto
+          const date = convertDate(row['Post day']);
+          return {
+            postDay: format(date, 'yyyy-MM-dd'),
+            videoTitle: row['Video title'] || '',
+            totalVideoTime: parseFloat(row['Total video time'] || '0'),
+            totalViews: parseInt(row['Total views']?.replace(/,/g, '') || '0', 10),
+            totalLikes: parseInt(row['Total likes']?.replace(/,/g, '') || '0', 10),
+            totalComments: parseInt(row['Total comments']?.replace(/,/g, '') || '0', 10),
+            totalShares: parseInt(row['Total shares']?.replace(/,/g, '') || '0', 10),
+            totalSaves: parseInt(row['Total saves']?.replace(/,/g, '') || '0', 10),
+            avgWatchTime: parseFloat(row['Avg watch time'] || '0'),
+            fullWatchPercentage: parseFloat((row['Full watch percentage'] || '0').replace('%', '')),
+            newFollowers: parseInt(row['New followers']?.replace(/,/g, '') || '0', 10),
+            tags1: row['Tags1']?.toLowerCase().trim() || '',
+            tags2: row['Tags2']?.toLowerCase().trim() || '',
+          };
         });
 
         setContentData(processedData);
