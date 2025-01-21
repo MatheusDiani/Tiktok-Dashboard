@@ -23,7 +23,7 @@ Atualmente, sou criador de conteúdo no Tiktok e tive a necessidade de saber qua
 - Avaliar o desempenho geral do meu perfil.
 - Identificar a relação entre a duração dos vídeos e o número de visualizações.
 - Determinar se quanto maior o tempo que o usuário passa no vídeo, maior é o engajamento
-- Analisar quais tipos de vídeos trazem mais engajamento.
+- Analisar quais tipos de vídeos trazem mais engajamento e novos seguidores.
 
 ###  3 - Coleta de dados.
 
@@ -81,6 +81,14 @@ Gráfico 4:
 </div>
 
 Gráfico dotplot com a combinação de tags no eixo X e engajamento no eixo Y.
+
+Gráfico 5:
+
+<div align="center">
+  <img src="Images/grafico 5.png" alt="Gráfico Dotplot - Engajamento vs Proporção média assistida" width="600">
+</div>
+
+Gráfico de linhas e barras com a combinação de tags no eixo X, % média do tempo assistido no eixo Y na esquerda e o número de novos seguidores no eixo Y na direita.
 
 
 Tabela:
