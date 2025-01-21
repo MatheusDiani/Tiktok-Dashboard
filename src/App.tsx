@@ -57,7 +57,7 @@ function App() {
   const [contentData, setContentData] = useState<ContentData[]>([]);
 
   const [visibleMetrics, setVisibleMetrics] = useState<Record<string, boolean>>({
-    videoViews: true,asdf
+    videoViews: true,
     profileViews: true,
     likes: true,
     comments: true,
