@@ -128,6 +128,21 @@ function App() {
     });
   }, [contentData, dateRange, viewsRange]);
 
+  // Filtrar dados do Overview
+  const filteredOverviewData = useMemo(() => {
+    return overviewData.filter((item) => {
+      try {
+        const itemDate = new Date(item.date);
+        const startDate = new Date(dateRange.start);
+        const endDate = new Date(dateRange.end);
+
+        return itemDate >= startDate && itemDate <= endDate;
+      } catch (error) {
+        return false;
+      }
+    });
+  }, [overviewData, dateRange]);
+
   useEffect(() => {
     // Carregar e mapear Overview.csv
     d3.csv('/Overview.csv', (row) => ({
@@ -218,7 +233,7 @@ function App() {
 
         <div className="space-y-6">
           <TrendChart
-            data={overviewData} // Passar os dados filtrados
+            data={filteredOverviewData} // Usar os dados filtrados ao invés de overviewData
             visibleMetrics={visibleMetrics}
             onToggleMetric={toggleMetric}
           />
