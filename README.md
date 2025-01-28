@@ -46,8 +46,6 @@ Com o grande avanço das IA's, eu pude utilizar a plataforma Bolt.new para criar
 
 Primeiramente, criei filtros globais no dashboard para controlar tanto o período de publicação dos vídeos quanto a quantidade de visualizações. Pois, existem períodos em que os vídeos tem mais visualizações e outros em que tem menos, além de poder comparar padrões de desempenho em vídeos com diferentes visualizações.
 
-O deploy do dashboard foi realizado na plataforma Netlify, e está disponível através do seguinte link: [Dashboard](https://tiktokdashboard.netlify.app).
-
 <div align="center">
   <img src="Images/filtro.png" alt="Filtros do dashboard" width="600">
 </div>
@@ -105,13 +103,15 @@ Tabela:
 
 Tabela com várias informações sobre os vídeos.
 
+O deploy do dashboard foi realizado na plataforma Netlify, e está disponível através do seguinte link: [Dashboard](https://tiktokdashboard.netlify.app).
+
 ###  7 - Conclusão.
 
 Com o dashboard, posso ter uma visão geral do desempenho das minhas postagens, podendo aproveitar momentos de picos de visualizações no meu perfil e aproveitar essas oportunidades para produzir os modelos de vídeos que geram maior engajamento.
 
 ###  8 - Melhorias.
 
-- Implementar uma API para coletar os dados dos vídeos.
+- Implementar uma API para coletar os dados dos vídeos. (em produção)
 - Adicionar novas variáveis para o dashboard.
 - Adicionar mais filtros.
 - Criar abas para melhor organização.
