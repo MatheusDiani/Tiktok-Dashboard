@@ -11,7 +11,6 @@ import {
 } from 'recharts';
 
 interface ContentData {
-  // Ajuste aqui caso seus dados tenham mais campos
   videoTitle: string;
   totalLikes: number;
   totalComments: number;
