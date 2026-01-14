@@ -20,7 +20,7 @@
 
 ###  1 - Definição do problema.
 
-Atualmente, sou criador de conteúdo no Tiktok e tive a necessidade de saber quais os melhores modelos de vídeos focar para ter mais sucesso em meu perfil e aumentar o engajamento.
+Durante meu período como criador de conteúdo no TikTok, tive a necessidade de saber quais os melhores modelos de vídeos focar para ter mais sucesso em meu perfil e aumentar o engajamento.
 
 ###  2 - Definição dos objetivos.
 
@@ -111,7 +111,7 @@ Com o dashboard, posso ter uma visão geral do desempenho das minhas postagens, 
 
 ###  8 - Melhorias.
 
-- Implementar uma API para coletar os dados dos vídeos. (em produção)
+- Implementar uma API para coletar os dados dos vídeos.
 - Adicionar novas variáveis para o dashboard.
 - Adicionar mais filtros.
 - Criar abas para melhor organização.
